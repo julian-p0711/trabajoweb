@@ -1,0 +1,131 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class paseoPerrosCodifi {
+
+  private final JLabel labelTamanio;
+  private JRadioButton radioGrande;
+  private JRadioButton radioMediano;
+  private JRadioButton radioPequeño;
+  private final JLabel labelCantidad;
+  private JTextField textFieldCantidad;
+  private final JButton buttonCalcular;
+  private JLabel labelPrecio;
+
+  public paseoPerrosCodifi() {
+    setTitle("Calculadora de precio de paseo de perros");
+    setSize(400, 300);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    // Componentes
+
+    labelTamanio = new JLabel("Tamaño del perro:");
+    radioGrande = new JRadioButton("Grande");
+    radioMediano = new JRadioButton("Mediano");
+    radioPequeño = new JRadioButton("Pequeño");
+    labelCantidad = new JLabel("Cantidad de perros:");
+    textFieldCantidad = new JTextField(10);
+    buttonCalcular = new JButton("Calcular");
+    labelPrecio = new JLabel("Precio:");
+
+    // Agrupar botones de radio
+
+    ButtonGroup grupoTamanio = new ButtonGroup();
+    grupoTamanio.add(radioGrande);
+    grupoTamanio.add(radioMediano);
+    grupoTamanio.add(radioPequeño);
+
+    // Layout
+
+    JPanel panel1 = new JPanel();
+    panel1.setLayout(new FlowLayout());
+    panel1.add(labelTamanio);
+    panel1.add(radioGrande);
+    panel1.add(radioMediano);
+    panel1.add(radioPequeño);
+
+    JPanel panel2 = new JPanel();
+    panel2.setLayout(new FlowLayout());
+    panel2.add(labelCantidad);
+    panel2.add(textFieldCantidad);
+
+    JPanel panel3 = new JPanel();
+    panel3.setLayout(new FlowLayout());
+    panel3.add(buttonCalcular);
+
+    JPanel panel4 = new JPanel();
+    panel4.setLayout(new FlowLayout());
+    panel4.add(labelPrecio);
+
+    add(panel1, BorderLayout.NORTH);
+    add(panel2, BorderLayout.CENTER);
+    add(panel3, BorderLayout.SOUTH);
+    add(panel4, BorderLayout.SOUTH);
+
+    // Eventos
+
+    buttonCalcular.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        // Obtener datos del usuario
+        String tamanio = "";
+        if (radioGrande.isSelected()) {
+          tamanio = "grande";
+        } else if (radioMediano.isSelected()) {
+          tamanio = "mediano";
+        } else if (radioPequeño.isSelected()) {
+          tamanio = "pequeño";
+        }
+        int cantidad = Integer.parseInt(textFieldCantidad.getText());
+
+        // Calcular el precio del paseo
+        double precio = 0;
+        switch (tamanio) {
+          case "grande":
+            precio = 10000;
+            break;
+          case "mediano":
+            precio = 5000;
+            break;
+          case "pequeño":
+            precio = 3000;
+            break;
+        }
+
+        // Aplicar el descuento por cantidad
+        if (cantidad > 1) {
+          precio = precio * 0.9;
+        }
+
+        // Mostrar el resultado
+        labelPrecio.setText("Precio: " + precio + " pesos");
+      }
+    });
+
+  }
+
+  public static void main(String[] args) {
+    paseoPerrosCodifi ventana = new paseoPerrosCodifi();
+   
+  }
+
+    private void setTitle(String calculadora_de_precio_de_paseo_de_perros) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void setSize(int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void setDefaultCloseOperation(int EXIT_ON_CLOSE) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void add(JPanel panel1, String NORTH) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void setVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+}
