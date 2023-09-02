@@ -1,0 +1,60 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset="UTF-8">
+  <title>Calculadora de precio de paseo de perros</title>
+</head>
+<body>
+
+  <h1>Calculadora de precio de paseo de perros</h1>
+
+  <form action="calcular" method="post">
+
+    <p>
+      <label for="tamanio">Tamaño del perro:</label>
+      <input type="radio" name="tamanio" value="grande" id="grande"> Grande
+      <input type="radio" name="tamanio" value="mediano" id="mediano"> Mediano
+      <input type="radio" name="tamanio" value="pequeño" id="pequeño"> Pequeño
+    </p>
+
+    <p>
+      <label for="cantidad">Cantidad de perros:</label>
+      <input type="number" name="cantidad" id="cantidad">
+    </p>
+
+    <p>
+      <input type="submit" value="Calcular">
+    </p>
+
+  </form>
+
+  <%
+    
+    String tamanio = request.getParameter("tamanio");
+    int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+
+    
+    double precio = 0;
+    if (tamanio.equals("grande")) {
+      precio = 10000;
+    } else if (tamanio.equals("mediano")) {
+      precio = 5000;
+    } else if (tamanio.equals("pequeño")) {
+      precio = 3000;
+    }
+
+    
+    if (cantidad > 1) {
+      precio = precio * 0.1;
+    }
+
+    
+    %>
+
+  <p>
+    El precio del paseo es de <b><%= precio %> pesos</b>.
+  </p>
+
+</body>
+</html>
