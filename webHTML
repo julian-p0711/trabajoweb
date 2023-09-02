@@ -1,0 +1,34 @@
+<html>
+   <head>
+  <meta charset="UTF-8">
+  <title>Calculadora de precio de paseo de perros</title>
+</head>
+  
+    <body>
+
+  <h1>Calculadora de precio de paseo de perros</h1>
+
+  <form action="calcular" method="post">
+
+    <p>
+      <label for="tamanio">Tamaño del perro:</label>
+      <input type="radio" name="tamanio" value="grande" id="grande"> Grande
+      <input type="radio" name="tamanio" value="mediano" id="mediano"> Mediano
+      <input type="radio" name="tamanio" value="pequeño" id="pequeño"> Pequeño
+    </p>
+
+    <p>
+      <label for="cantidad">Cantidad de perros:</label>
+      <input type="number" name="cantidad" id="cantidad">
+    </p>
+
+    <p>
+      <input type="submit" value="Calcular">
+    </p>
+
+  </form>
+
+ 
+
+</body>  
+</html>
